@@ -17,17 +17,16 @@
 % ==============================================================================
 % CUSTOM AI-FILLABLE MACRO
 % ==============================================================================
-% Usage:
-% \papersummary{Title}{Authors}{Year/Venue}{Core Problem}{Architecture/Method}{Hardware/Setup}{Results}{Results Analysis & Tables}{Limitations & Relevance}
-% ==============================================================================
+\newcounter{papercnt} % Initializes the automatic counter
 
 \newcommand{\papersummary}[9]{
+    \stepcounter{papercnt} % Increments by 1 each time the macro is called
     \vspace{1em}
     \noindent\fbox{%
     \begin{minipage}{\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax}
         \vspace{0.5em}
         \begin{center}
-            \Large \textbf{#1}
+            \Large \textbf{Paper \arabic{papercnt}: #1}
         \end{center}
         \vspace{0.2em}
         \noindent\textbf{Authors:} #2 \hfill \textbf{Year \& Venue:} #3 \par\vspace{0.5em}
@@ -59,41 +58,6 @@ This document aggregates literature summaries. An AI assistant can be instructed
 
 % --- PASTE AI OUTPUT BELOW THIS LINE ---
 
-\papersummary
-{Example Paper: Hierarchical Frameworks for Robotic Manipulation}
-{Doe, J., Smith, A., et al.}
-{2026, IEEE/RSJ IROS}
-{Addressing the latency and generalization gap in fine-motor robotic tasks using standard monolithic models.}
-{A Hierarchical Mixture of Experts (HMoE) architecture separating high-level task planning from low-level joint parsing.}
-{Evaluated on a simulated 6-DoF arm with RGB-D camera inputs (similar to RealSense D435if). Uses custom action-chunking datasets.}
-{Reduced inference latency by 15\% while increasing successful grasp rates on unseen geometries by 22\%.}
-{
-    The model demonstrated significant performance improvements in multi-stage manipulation tasks compared to the baseline.
-    \vspace{0.5em}
-    
-    \begin{center}
-    \begin{tabular}{lcc}
-        \toprule
-        \textbf{Method} & \textbf{Latency (ms)} & \textbf{Success Rate (\%)} \\
-        \midrule
-        Baseline Monolithic & 142 & 68.5 \\
-        Proposed HMoE & \textbf{120} & \textbf{90.5} \\
-        \bottomrule
-    \end{tabular}
-    \end{center}
-}
-{The action chunking size is fixed, which limits dynamic reactive adjustments. Highly relevant for structuring the modular components of our current pipeline.}
 
-% Blank template for AI reference
-% \papersummary
-% {Title}
-% {Authors}
-% {Year, Venue}
-% {Problem description.}
-% {Methodology description.}
-% {Hardware details.}
-% {Results.}
-% {Results Analysis and Tables.}
-% {Relevance.}
 
 \end{document}
