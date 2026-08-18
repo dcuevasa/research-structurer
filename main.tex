@@ -1,0 +1,99 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{booktabs} % Added for better table formatting
+
+% Color setup for links
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+% ==============================================================================
+% CUSTOM AI-FILLABLE MACRO
+% ==============================================================================
+% Usage:
+% \papersummary{Title}{Authors}{Year/Venue}{Core Problem}{Architecture/Method}{Hardware/Setup}{Results}{Results Analysis & Tables}{Limitations & Relevance}
+% ==============================================================================
+
+\newcommand{\papersummary}[9]{
+    \vspace{1em}
+    \noindent\fbox{%
+    \begin{minipage}{\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax}
+        \vspace{0.5em}
+        \begin{center}
+            \Large \textbf{#1}
+        \end{center}
+        \vspace{0.2em}
+        \noindent\textbf{Authors:} #2 \hfill \textbf{Year \& Venue:} #3 \par\vspace{0.5em}
+        \noindent\textbf{Core Problem:} #4 \par\vspace{0.5em}
+        \noindent\textbf{Architecture / Method:} #5 \par\vspace{0.5em}
+        \noindent\textbf{Hardware, Sensors \& Datasets:} #6 \par\vspace{0.5em}
+        \noindent\textbf{Key Results:} #7 \par\vspace{0.5em}
+        \noindent\textbf{Results Analysis \& Tables:} \par\vspace{0.2em} 
+        \noindent #8 \par\vspace{0.5em}
+        \noindent\textbf{Relevance / Limitations:} #9
+        \vspace{0.5em}
+    \end{minipage}%
+    }
+    \vspace{1em}
+}
+
+\title{Literature Review Documentation}
+\author{Research Log}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Overview}
+This document aggregates literature summaries. An AI assistant can be instructed to read a paper and output exactly one \texttt{\textbackslash papersummary} macro block per paper.
+
+\section*{Paper Summaries}
+
+% --- PASTE AI OUTPUT BELOW THIS LINE ---
+
+\papersummary
+{Example Paper: Hierarchical Frameworks for Robotic Manipulation}
+{Doe, J., Smith, A., et al.}
+{2026, IEEE/RSJ IROS}
+{Addressing the latency and generalization gap in fine-motor robotic tasks using standard monolithic models.}
+{A Hierarchical Mixture of Experts (HMoE) architecture separating high-level task planning from low-level joint parsing.}
+{Evaluated on a simulated 6-DoF arm with RGB-D camera inputs (similar to RealSense D435if). Uses custom action-chunking datasets.}
+{Reduced inference latency by 15\% while increasing successful grasp rates on unseen geometries by 22\%.}
+{
+    The model demonstrated significant performance improvements in multi-stage manipulation tasks compared to the baseline.
+    \vspace{0.5em}
+    
+    \begin{center}
+    \begin{tabular}{lcc}
+        \toprule
+        \textbf{Method} & \textbf{Latency (ms)} & \textbf{Success Rate (\%)} \\
+        \midrule
+        Baseline Monolithic & 142 & 68.5 \\
+        Proposed HMoE & \textbf{120} & \textbf{90.5} \\
+        \bottomrule
+    \end{tabular}
+    \end{center}
+}
+{The action chunking size is fixed, which limits dynamic reactive adjustments. Highly relevant for structuring the modular components of our current pipeline.}
+
+% Blank template for AI reference
+% \papersummary
+% {Title}
+% {Authors}
+% {Year, Venue}
+% {Problem description.}
+% {Methodology description.}
+% {Hardware details.}
+% {Results.}
+% {Results Analysis and Tables.}
+% {Relevance.}
+
+\end{document}
